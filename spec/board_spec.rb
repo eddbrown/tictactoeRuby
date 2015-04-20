@@ -1,4 +1,5 @@
 require 'board'
+require 'board_spec_helper'
 
 describe Board do
 
@@ -27,16 +28,10 @@ describe Board do
     expect{board.place(:x, 0, 0)}.to raise_error('board is full')
   end
 
+  it 'can reset' do
+    fill_board
+    board.reset!
+    expect(board).to be_empty
+  end
 end
 
-def fill_board
-  board.place(:x, 0, 0)
-  board.place(:x, 0, 1)
-  board.place(:x, 0, 2)
-  board.place(:x, 1, 0)
-  board.place(:x, 1, 1)
-  board.place(:x, 1, 2)
-  board.place(:x, 2, 0)
-  board.place(:x, 2, 1)
-  board.place(:x, 2, 2)
-end

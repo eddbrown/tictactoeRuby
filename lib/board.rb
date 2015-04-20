@@ -5,6 +5,7 @@ class Board
   def initialize
     @grid = Array.new(3) {Array.new(3)}
     @valid_pieces = [:x, :o, nil]
+    @status = :in_play
   end
 
   def place(piece, row, column)
@@ -15,6 +16,14 @@ class Board
 
   def full?
     !@grid.flatten.include? nil
+  end
+
+  def reset!
+    @grid = Array.new(3) {Array.new(3)}
+  end
+
+  def empty?
+    @grid.flatten.uniq == [nil]
   end
 
 end
