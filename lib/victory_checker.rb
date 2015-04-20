@@ -7,8 +7,11 @@ class Victory_checker
   end
 
   def check(grid)
+    check_in_play(grid)
+    check_draw(grid)
     [:x,:o].each{|piece| check_horizontal(grid, piece)}
     [:x,:o].each{|piece| check_vertical(grid, piece)}
+    [:x,:o].each{|piece| check_diagonal(grid, piece)}
   end
 
   def check_horizontal(grid, piece)
@@ -23,13 +26,20 @@ class Victory_checker
     end
   end
 
-
-
-
+  def check_diagonal(grid, piece)
+    victory(piece) if (0..2).map{|x| grid[x][x]}.uniq == [piece]
+    victory(piece) if (0..2).map{|x| grid[2 - x][x]}.uniq == [piece]
+  end
 
   def victory(piece)
     @status = (piece.to_s + '_victory').to_sym
   end
 
+  def check_draw(grid)
+    @status = :draw if !grid.flatten.include? nil
+  end
 
+  def check_in_play(grid)
+    @status = :in_play if grid.flatten.include? nil
+  end
 end
