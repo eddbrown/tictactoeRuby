@@ -9,9 +9,13 @@ class Victory_checker
   def check(grid)
     check_in_play(grid)
     check_draw(grid)
-    [:x,:o].each{|piece| check_horizontal(grid, piece)}
-    [:x,:o].each{|piece| check_vertical(grid, piece)}
-    [:x,:o].each{|piece| check_diagonal(grid, piece)}
+    [:x,:o].each{|piece| check_all(grid, piece)}
+  end
+
+  def check_all(grid, piece)
+    check_horizontal(grid,piece)
+    check_vertical(grid,piece)
+    check_diagonal(grid, piece)
   end
 
   def check_horizontal(grid, piece)
