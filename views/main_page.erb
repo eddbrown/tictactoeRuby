@@ -34,6 +34,8 @@ Tic Tac Toe
       $.ajax({
         method: 'POST',
         url: "/place",
+        dataType: 'JSON',
+        data: {'x': dataset.coord.split('-')[0], 'y': dataset.coord.split('-')[1]},
         success: function(data){
           self.text('x');
         }
