@@ -32,7 +32,6 @@ post '/place' do
     piece = player_2.piece
   end
   game.update_turn
-  p board.grid
   { gameStatus: checker.check(board.grid), piece: piece}.to_json
 end
  
