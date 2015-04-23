@@ -1,16 +1,18 @@
-class Victory_checker
+class VictoryChecker
 
   attr_accessor :status
 
   def initialize
-    @status
+    @status = :in_play
   end
 
   def check(grid)
-    check_in_play(grid)
-    check_draw(grid)
-    [:x,:o].each{|piece| check_all(grid, piece)}
-    return @status
+    if @status == :in_play
+      check_in_play(grid)
+      check_draw(grid)
+      [:x,:o].each{|piece| check_all(grid, piece)}
+    end
+    @status
   end
 
   def check_all(grid, piece)

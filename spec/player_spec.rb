@@ -3,7 +3,9 @@ require 'player'
 describe Player do
 
   let(:player){ Player.new }
+  let(:player2){ Player.new }
   let(:board){ double :board }
+  let(:game){ double :game }
 
   it 'should be not be either player 1 or 2 when created' do
     expect(player.form).to eq(:not_chosen)
@@ -25,9 +27,11 @@ describe Player do
   end
 
   it 'should be able to tell the board where to place a piece' do
+    allow(board).to receive(:place).and_return(true)
+    expect(board).to receive(:place).with(:x, 0, 0)
+    expect(game).to receive(:update_turn)
     player.choose(:player_1)
-    expect(board).to receive(:place).with(player.piece, 0, 0)
-    player.place_piece(board, 0, 0)
-  end
-      
+    player.place_piece(game, board, 0, 0)
+  end 
+    
 end

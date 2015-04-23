@@ -13,8 +13,8 @@ class Player
     player == :player_1 ? @piece = :x : @piece = :o
   end
 
-  def place_piece board, row, column
-    board.place(@piece, row, column)
+  def place_piece game, board, row, column
+    game.update_turn if board.place(@piece, row, column)
   end
 
 

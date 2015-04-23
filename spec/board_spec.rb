@@ -18,5 +18,11 @@ describe Board do
     board.reset!
     expect(board).to be_empty
   end
+
+  it 'should not be able to place where there are already pieces' do
+    board.place(:x, 0, 0)
+    board.place(:o, 0, 0)
+    expect(board.grid[0][0]).to eq(:x)
+  end
 end
 

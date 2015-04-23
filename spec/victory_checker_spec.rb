@@ -1,10 +1,10 @@
 require 'victory_checker'
 require 'victory_checker_spec_helper'
 
-describe Victory_checker do 
+describe VictoryChecker do 
 
   let(:grid) {Array.new(3) {Array.new(3)}}
-  let(:checker) {Victory_checker.new}
+  let(:checker) {VictoryChecker.new}
 
   context 'recognises victory' do
 
@@ -56,6 +56,19 @@ describe Victory_checker do
       expect(checker.status).to eq(:in_play)
     end
   end
+
+  it 'should not change from x_victory to o_victory' do
+    grid[0][2] = :x
+    grid[1][1] = :x
+    grid[2][0] = :x
+    checker.check(grid)
+    grid[0][0] = :o
+    grid[1][1] = :o
+    grid[2][2] = :o
+    checker.check(grid)
+    expect(checker.status).to eq(:x_victory)
+  end
+
 end
 
 

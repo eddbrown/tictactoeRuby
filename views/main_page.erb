@@ -29,16 +29,18 @@
 <script>
   $(function(){
     $('td').click(function(){ 
-      var self = $(this)
-      var param_data = self.data('coord').split('-')
-      var id = String(param_data[0] + param_data[1])
+      var self = $(this);
+      var param_data = self.data('coord').split('-');
+      var id = String(param_data[0] + param_data[1]);
       $.ajax({
         method: 'POST',
         url: "/place",
         data: {'coords': param_data},
         success: function(data){
-          $('#' + id).text(JSON.parse(data)['piece']);
           $('#status').text(JSON.parse(data)['gameStatus']);
+          if(JSON.parse(data)['instruction'] != 'dont update'){
+            $('#' + id).text(JSON.parse(data)['piece']);
+          };
         }
       });
     });

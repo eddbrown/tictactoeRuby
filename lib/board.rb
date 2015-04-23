@@ -8,7 +8,12 @@ class Board
   end
 
   def place(piece, row, column)
-    @grid[row][column] = piece 
+    if @grid[row][column] == nil
+      @grid[row][column] = piece
+      true
+    else 
+      false
+    end
   end
 
   def reset!
