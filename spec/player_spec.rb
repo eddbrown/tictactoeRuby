@@ -14,17 +14,6 @@ describe Player do
     expect(player.form).to eq(:player_1)
   end
 
-  it 'should only be able to choose p1 or p2' do
-    expect{ player.choose(:not_valid_form) }.to raise_error 'invalid choice'
-  end
-
-  it 'should be able to reset' do
-    player.choose(:player_1)
-    player.reset
-    expect(player.form).to eq(:not_chosen)
-    expect(player.piece).to eq(:not_chosen)
-  end
-
   it 'player 1 should have an x as their piece' do
     player.choose(:player_1)
     expect(player.piece).to eq(:x)
