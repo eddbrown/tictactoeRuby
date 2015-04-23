@@ -25,14 +25,14 @@ end
 
 post '/place' do
   if game.turn_count % 2 != 0
-    player_1.place_piece(board, params['coords'][0].to_i, params['coords'][0].to_i)
+    player_1.place_piece(board, params['coords'][0].to_i, params['coords'][1].to_i)
     piece = player_1.piece
   else
-    player_2.place_piece(board, params['coords'][0].to_i, params['coords'][0].to_i)
+    player_2.place_piece(board, params['coords'][0].to_i, params['coords'][1].to_i)
     piece = player_2.piece
   end
   game.update_turn
-  p checker.check(board.grid)
+  p board.grid
   { gameStatus: checker.check(board.grid), piece: piece}.to_json
 end
  

@@ -31,6 +31,7 @@
     $('td').click(function(){ 
       var self = $(this)
       var param_data = self.data('coord').split('-')
+      console.log(param_data)
       var id = String(param_data[0] + param_data[1])
       $.ajax({
         method: 'POST',

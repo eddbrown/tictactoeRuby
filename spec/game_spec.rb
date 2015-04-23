@@ -12,12 +12,7 @@ describe Game do
     game.update_turn
     expect(game.turn_count).to eq(2)
   end
-
-  it 'should not be able to go past nine turns' do
-    8.times {game.update_turn}
-    expect{game.update_turn}.to raise_error 'board is full'
-  end
-
+  
   it 'should say who\'s go it is' do
     expect(game.turn).to eq(:player_1)
     game.update_turn
