@@ -16,21 +16,23 @@ class Victory_checker
   def check_all(grid, piece)
     check_horizontal(grid,piece)
     check_vertical(grid,piece)
-    check_diagonal(grid, piece)
+    check_leading_diagonal(grid, piece)
+    check_non_leading_diagonal(grid, piece)
   end
 
   def check_horizontal(grid, piece)
-    (0..2).each{|row|  victory(piece) if grid[row].uniq.length == 1 && grid[row][0] == piece}
+    (0..2).each{|row| victory(piece) if grid[row].uniq.length == 1 && grid[row][0] == piece}
   end
 
   def check_vertical(grid, piece)
-    (0..2).each do |column|
-      victory(piece) if (0..2).map{|row| grid[row][column]}.uniq == [piece]
-    end
+    (0..2).each{|column| victory(piece) if (0..2).map{|row| grid[row][column]}.uniq == [piece]}
   end
 
-  def check_diagonal(grid, piece)
+  def check_leading_diagonal(grid, piece)
     victory(piece) if (0..2).map{|x| grid[x][x]}.uniq == [piece]
+  end
+
+  def check_non_leading_diagonal(grid, piece)
     victory(piece) if (0..2).map{|x| grid[2 - x][x]}.uniq == [piece]
   end
 
