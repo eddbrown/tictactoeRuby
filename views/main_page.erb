@@ -1,27 +1,26 @@
-Tic Tac Toe
 <head>
 </head>
 
-
 <body>
+  <div id="status"> <%= @status %> </div>
   <table>
     <tr>
-      <td data-coord='0-0'><%= @board.grid[0][0]%></td>
-      <td data-coord='0-1'><%= @board.grid[0][1]%></td>
-      <td data-coord='0-2'><%= @board.grid[0][2]%></td>
+      <td id="00" data-coord='0-0'><%= @board.grid[0][0]%></td>
+      <td id="01" data-coord='0-1'><%= @board.grid[0][1]%></td>
+      <td id="02" data-coord='0-2'><%= @board.grid[0][2]%></td>
     </tr>
     <tr>
-      <td data-coord='1-0'><%= @board.grid[1][0]%></td>
-      <td data-coord='1-1'><%= @board.grid[1][1]%></td>
-      <td data-coord='1-2'><%= @board.grid[1][2]%></td>
+      <td id="10" data-coord='1-0'><%= @board.grid[1][0]%></td>
+      <td id="11" data-coord='1-1'><%= @board.grid[1][1]%></td>
+      <td id="12" data-coord='1-2'><%= @board.grid[1][2]%></td>
     </tr>
     <tr>
-      <td data-coord='2-0'><%= @board.grid[2][0]%></td>
-      <td data-coord='2-1'><%= @board.grid[2][1]%></td>
-      <td data-coord='2-2'><%= @board.grid[2][2]%></td>
+      <td id="20" data-coord='2-0'><%= @board.grid[2][0]%></td>
+      <td id="21" data-coord='2-1'><%= @board.grid[2][1]%></td>
+      <td id="22" data-coord='2-2'><%= @board.grid[2][2]%></td>
     </tr>
   </table>
-  <a href="/">New Game?</a>
+  <a href="/reset">New Game?</a>
 </body>
 
 
@@ -31,16 +30,25 @@ Tic Tac Toe
   $(function(){
     $('td').click(function(){ 
       var self = $(this)
+      var param_data = self.data('coord').split('-')
+      var id = String(param_data[0] + param_data[1])
       $.ajax({
         method: 'POST',
         url: "/place",
-        dataType: 'JSON',
-        data: {'x': dataset.coord.split('-')[0], 'y': dataset.coord.split('-')[1]},
+        data: {'coords': param_data},
         success: function(data){
-          self.text('x');
+          console.log(data)
+          $('#' + id).text(JSON.parse(data)['piece']);
+          $('#status').text(JSON.parse(data)['gameStatus']);
         }
       });
     });
   })
   
 </script>
+<style type='text/css'>
+  table, td {
+    border: 1px solid black;
+    width: 100%;
+  }
+<style>

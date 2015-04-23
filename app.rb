@@ -1,4 +1,5 @@
 require 'sinatra'
+require 'json'
 require_relative 'requirefile.rb'
 
 player_1 = Player.new
@@ -10,16 +11,28 @@ board = Board.new
 game = Game.new
 
 get '/' do
-  player_1.place_piece(board, 2, 2)
+  @status = checker.check(board.grid)
+  @game = game
   @board = board
   erb :main_page
 end
 
-post '/' do
+get '/reset' do
   board.reset!
+  game.reset!
   redirect '/'
 end
 
 post '/place' do
-  player_1.place_piece(board, 2, 2)
+  if game.turn_count % 2 != 0
+    player_1.place_piece(board, params['coords'][0].to_i, params['coords'][0].to_i)
+    piece = player_1.piece
+  else
+    player_2.place_piece(board, params['coords'][0].to_i, params['coords'][0].to_i)
+    piece = player_2.piece
+  end
+  game.update_turn
+  p checker.check(board.grid)
+  { gameStatus: checker.check(board.grid), piece: piece}.to_json
 end
+ 

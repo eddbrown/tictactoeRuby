@@ -10,6 +10,7 @@ class Victory_checker
     check_in_play(grid)
     check_draw(grid)
     [:x,:o].each{|piece| check_all(grid, piece)}
+    return @status
   end
 
   def check_all(grid, piece)
