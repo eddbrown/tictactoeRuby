@@ -5,7 +5,6 @@ class Player
 
   def initialize
     @form = :not_chosen
-    @valid_choices = [:player_1, :player_2]
     @piece = :not_chosen
   end
 

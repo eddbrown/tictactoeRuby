@@ -20,9 +20,7 @@ class Victory_checker
   end
 
   def check_horizontal(grid, piece)
-    (0..2).each do |row|
-      victory(piece) if grid[row].uniq.length == 1 && grid[row][0] == piece
-    end
+    (0..2).each{|row|  victory(piece) if grid[row].uniq.length == 1 && grid[row][0] == piece}
   end
 
   def check_vertical(grid, piece)
