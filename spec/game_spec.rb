@@ -19,5 +19,11 @@ describe Game do
     expect(game.turn).to eq(:player_2)
   end
 
+  it 'should reset' do
+    game.update_turn
+    game.reset!
+    expect(game.turn_count).to eq(1)
+  end
+
 
 end

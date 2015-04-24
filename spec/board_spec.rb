@@ -24,5 +24,6 @@ describe Board do
     board.place(:o, 0, 0)
     expect(board.grid[0][0]).to eq(:x)
   end
+
 end
 

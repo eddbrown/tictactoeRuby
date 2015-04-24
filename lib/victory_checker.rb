@@ -10,12 +10,12 @@ class VictoryChecker
     if @status == :in_play
       check_in_play(grid)
       check_draw(grid)
-      [:x,:o].each{|piece| check_all(grid, piece)}
+      [:x,:o].each{|piece| check_for_all_victories(grid, piece)}
     end
     @status
   end
 
-  def check_all(grid, piece)
+  def check_for_all_victories(grid, piece)
     check_horizontal(grid,piece)
     check_vertical(grid,piece)
     check_leading_diagonal(grid, piece)
