@@ -69,6 +69,11 @@ describe VictoryChecker do
     expect(checker.status).to eq(:x_victory)
   end
 
+  it 'should reset to in_play' do
+    checker.reset!
+    expect(checker.status).to eq(:in_play)
+  end
+
 end
 
 

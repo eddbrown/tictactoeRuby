@@ -49,4 +49,8 @@ class VictoryChecker
   def check_in_play(grid)
     @status = :in_play if grid.flatten.include? nil
   end
+
+  def reset!
+    @status = :in_play
+  end
 end
