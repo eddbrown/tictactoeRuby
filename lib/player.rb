@@ -6,9 +6,11 @@ class Player
     @piece
   end
 
-  def place_piece game, board, row, column
+  def place_piece checker, game, board, row, column
     @piece = [:o, :x][game.turn_count % 2]
-    game.update_turn if board.place(@piece, row, column)
+    if checker.status == :in_play
+      game.update_turn if board.place(@piece, row, column)
+    end
   end
 
 
