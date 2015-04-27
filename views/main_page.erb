@@ -20,7 +20,7 @@
       <td id="22" data-coord='2-2'><%= @board.grid[2][2]%></td>
     </tr>
   </table>
-  <a href="/reset">New Game?</a>
+  <a id="newgame" href="/reset">New Game?</a>
 </body>
 
 
@@ -49,17 +49,36 @@
 </script>
 <style type='text/css'>
   table {
-    border: 1px solid black;
-    width: 100%;
-    height: 100%;
-
+    border: 1px solid white;
+    height: 60%;
+    margin-left:20%;
+    width:60%;
+    table-layout: fixed;
+    color: white;
+    position: absolute;
+    top: 20%;
   }
 
-  td, th {
-    border: 1px solid black;
+  td {
+    border: 1px solid white;
     height: 30%;
+    font-size: 125;
+    text-align:center; 
+    color: white;
   }
 
+  body {
+    background-color: black;
+  }
+
+  #status {
+    color: white;
+  }
+
+  #newgame {
+    color: white;
+    position: absolute;
+  }
 
 
 
