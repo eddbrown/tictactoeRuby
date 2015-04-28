@@ -10,6 +10,8 @@ Sinatra was used to get the server running, chosen because it is so lightweight.
 
 The back end is well tested. It started off with much more classes than there currently are. I decided after a while that there was a lot of redundancy in the code. The classes were stripped down immensely, especially the player class. I realised that the complication of having two players was completely unnecessary. The app is supposed to be played on one page, so having a second player class makes no sense if we just have one player class placing alternating pieces.
 
+The actual code is also really clean, shown by the 4.0 code climate score!
+
 I am quite proud of the victory checker class, however I am sure there is a neater way of structuring it.
 
 To have made the project less buggy and of higher quality, there should have been front end testing, but I was really just trying to work out how to pass the information to the front end. Indeed, I made a point of trying to not use the erb function of the markup, although in some cases, erb was by far the easiest way to communicate to the back end from the front.
