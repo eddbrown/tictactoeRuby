@@ -1,7 +1,4 @@
 # Tic Tac Toe in Ruby
-.. image:: https://codeclimate.com/repos/553fa4fe69568070a4004c92/badges/a39bfebb54285bcdb50e/coverage.svg
-   :target: https://codeclimate.com/repos/553fa4fe69568070a4004c92/feed
-   :alt: Test Coverage
    
 A simple tic tac toe app in ruby. Created to practice OOD principles, which if you look at the classes has been well implemented. Interaction with the other classes was stubbed out for testing. The classes also run on their own.
 
