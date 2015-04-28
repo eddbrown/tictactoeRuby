@@ -1,5 +1,7 @@
 # Tic Tac Toe in Ruby
    
+[![Code Climate](https://codeclimate.com/repos/553fa4fe69568070a4004c92/badges/a39bfebb54285bcdb50e/gpa.svg)](https://codeclimate.com/repos/553fa4fe69568070a4004c92/feed)
+
 A simple tic tac toe app in ruby. Created to practice OOD principles, which if you look at the classes has been well implemented. Interaction with the other classes was stubbed out for testing. The classes also run on their own.
 
 The purpose of the project was to try to gain more practice with back end ruby. However it evolved into learning how to pass information from the back end to the front using JSON objects. If you look at the app, the server creates a JSON object which the front end reads using AJAX and uses to update the main page.
