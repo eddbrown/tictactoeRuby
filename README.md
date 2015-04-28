@@ -5,7 +5,7 @@ The purpose of the project was to try to gain more practice with back end ruby. 
 
 Sinatra was used to get the server running, chosen because it is so lightweight.
 
-The back end is well tested. It started off with much more classes than there currently are. I decided after a while that there was a lot of redundancy in the code. The classes were stripped down immensely, especially ethe player class. I realised that the complication of having two players was completely unnecessary. The app is supposed to be played on one page, so having a second player class makes no sense if we just have one player class placing alternating pieces.
+The back end is well tested. It started off with much more classes than there currently are. I decided after a while that there was a lot of redundancy in the code. The classes were stripped down immensely, especially the player class. I realised that the complication of having two players was completely unnecessary. The app is supposed to be played on one page, so having a second player class makes no sense if we just have one player class placing alternating pieces.
 
 I am quite proud of the victory checker class, however I am sure there is a neater way of structuring it.
 
